@@ -1,38 +1,83 @@
 .App {
   text-align: center;
+  font-family: 'Roboto';
+  font-size: calc( 9px + (12 - 9) * (100vw - 400px) / (800 - 400) );
+  background-color: #0a1929;
+  color: #83b8c7;
+  height: 270vh;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+@mixin for-phone-only {
+  @media (max-width: 599px) { @content; }
+}
+@mixin for-tablet-portrait-up {
+  @media (min-width: 600px) { @content; }
+}
+@mixin for-tablet-landscape-up {
+  @media (min-width: 900px) { @content; }
+}
+@mixin for-desktop-up {
+  @media (min-width: 1200px) { @content; }
+}
+@mixin for-big-desktop-up {
+  @media (min-width: 1800px) { @content; }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.animated-font {
+  transform: rotate(0deg);
+  transition: transform 0.5s ease-in-out;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.animated-font:hover {
+  transform: rotate(-20deg);
+  transition: transform 0.5s ease-in-out;
+}
+
+a {
+  text-decoration: none;
+  color: #0a1929;
+}
+
+.wrapper {
+  padding-left: calc( 10px + (35 - 10) * (100vw - 400px) / (800 - 400) );
+  padding-right: calc( 10px + (35 - 10) * (100vw - 400px) / (800 - 400) );
+}
+
+.title {
+  color: #b3d7df;
+  text-align: start;
+  margin: 20px 0;
+  font-size: calc( 14px + (24 - 14) * (100vw - 400px) / (800 - 400) );
+  font-style: italic;
+}
+
+.sub-title {
+  margin-bottom: 5px;
+  transform: scale(1);
+  transition: transform 0.5s ease-in-out;
+}
+
+.section {
+  margin: 15px 0;
+  text-align: start;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: flex-start;
+  width: 90vw;
 }
 
-.App-link {
-  color: #61dafb;
+.section:hover>.sub-title {
+  transform: scale(1.1);
+  transition: transform 0.5s ease-in-out;
+  color:#c7f1fb;
+
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.p-line, li{
+  margin: 5px 0;
+}
+
+.emphasis {
+  font-weight: 900;
+  color: #c7f1fb;
 }

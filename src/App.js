@@ -1,23 +1,33 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import HeaderBar from './components/HeaderBar';
+import Intro from './pages/Intro';
+import TargetCustomer from './pages/TargetCustomer';
+import WhatWeDo from './pages/WhatWeDo';
+import HowWeDo from './pages/HowWeDo';
+
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route
+} from "react-router-dom";
 
 function App() {
+  document.title = "VUA Team";
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <HeaderBar/>
+      <div>
+        <Router>
+          <Routes>
+            <Route path="/" element={<Intro/>}/>
+            <Route path="/target-customer" element={<TargetCustomer/>}/>
+            <Route path="/our-idea" element={<WhatWeDo/>}/>
+            <Route path="/how-we-do-it" element={<HowWeDo/>}/>
+          </Routes>
+        </Router>
+      </div>
+        
     </div>
   );
 }

@@ -1,0 +1,25 @@
+.EZDrawer .EZDrawer__checkbox {
+  display: none; }
+  .EZDrawer .EZDrawer__checkbox:checked ~ .EZDrawer__overlay {
+    display: block;
+    opacity: 1; }
+  .EZDrawer .EZDrawer__checkbox:checked ~ .EZDrawer__container {
+    visibility: visible;
+    transform: translate3d(0, 0, 0) !important; }
+
+.EZDrawer .EZDrawer__overlay {
+  display: none;
+  height: 100vh;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%; }
+
+.EZDrawer .EZDrawer__container {
+  font-family: inherit;
+  position: fixed;
+  visibility: hidden;
+  background: #b3d7df !important;
+  color: #0a1929;
+  transition: all;
+  box-shadow: 0 0 10px 5px rgba(61, 122, 132, 0.1); }
